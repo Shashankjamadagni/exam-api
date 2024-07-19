@@ -1,0 +1,14 @@
+
+services:
+  db:
+    image: postgres:16.3-alpine3.20
+    restart: unless-stopped
+    ports:
+      - 5433:5432
+    shm_size: 256mb
+    environment:
+      POSTGRES_USER: examuser
+      POSTGRES_PASSWORD: exampassword
+      POSTGRES_DB: examapp
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
